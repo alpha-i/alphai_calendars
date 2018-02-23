@@ -1,0 +1,3 @@
+--extra-index-url https://pypi.fury.io/reW6hdjFCrSbpo3ehrBu/alpha-i/
+pandas-market-calendars==0.13
+
