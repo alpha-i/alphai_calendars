@@ -17,38 +17,38 @@ jobs:
 
     working_directory: ~/repo
 
-    steps:
-      - checkout
+  steps:
+    - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "dev-requirements.txt" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+    # Download and cache dependencies
+    - restore_cache:
+        keys:
+        - v1-dependencies-{{ checksum "dev-requirements.txt" }}
+        # fallback to using the latest cache if no exact match is found
+        - v1-dependencies-
 
-      - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r dev-requirements.txt
+    - run:
+        name: install dependencies
+        command: |
+          python3 -m venv venv
+          . venv/bin/activate
+          pip install -r dev-requirements.txt
 
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "dev-requirements.txt" }}
+    - save_cache:
+        paths:
+          - ./venv
+        key: v1-dependencies-{{ checksum "dev-requirements.txt" }}
 
-      # run tests!
-      - run:
-          name: run tests
-          command: |
-            . venv/bin/activate
-            pytest tests/ --cov=alphai_calendars --cov-report xml:reports/coverage.xml --junitxml=reports/junit.xml tests/  --runslow
+    # run tests!
+    - run:
+        name: run tests
+        command: |
+          . venv/bin/activate
+          pytest tests/ --cov=alphai_calendars --cov-report xml:reports/coverage.xml --junitxml=reports/junit.xml tests/  --runslow
 
-      - store_artifacts:
-          path: ./reports
-          destination: ~/reports
+    - store_artifacts:
+        path: ./reports
+        destination: ~/reports
 
-      - store_test_results:
-          path: ./reports
+    - store_test_results:
+        path: ./reports
