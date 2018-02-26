@@ -13,6 +13,9 @@ def test_get_minutes_in_one_trading_day():
     nyse_calendar = get_calendar('NYSE')
     assert nyse_calendar.get_minutes_in_one_trading_day() == 390
 
+    gymuk_calendar = get_calendar('GYMUK')
+    assert gymuk_calendar.get_minutes_in_one_trading_day() == 900
+
 
 def test_closing_time_for_day():
 
