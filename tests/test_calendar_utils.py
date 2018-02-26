@@ -5,16 +5,16 @@ import pytz
 from alphai_calendars import get_calendar
 
 
-def test_get_minutes_in_one_trading_day():
+def test_get_minutes_in_one_day():
 
     jpx_calendar = get_calendar('JPX')
-    assert jpx_calendar.get_minutes_in_one_trading_day() == 360
+    assert jpx_calendar.get_minutes_in_one_day() == 360
 
     nyse_calendar = get_calendar('NYSE')
-    assert nyse_calendar.get_minutes_in_one_trading_day() == 390
+    assert nyse_calendar.get_minutes_in_one_day() == 390
 
     gymuk_calendar = get_calendar('GYMUK')
-    assert gymuk_calendar.get_minutes_in_one_trading_day() == 900
+    assert gymuk_calendar.get_minutes_in_one_day() == 900
 
 
 def test_closing_time_for_day():

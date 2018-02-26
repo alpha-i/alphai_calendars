@@ -143,7 +143,7 @@ class EnhancedCalendar:
         except KeyError:
             return None
 
-    def get_minutes_in_one_trading_day(self, exclude_lunch_break=False):
+    def get_minutes_in_one_day(self, exclude_lunch_break=False):
         """
         :param exclude_lunch_break: whether to discard minutes during lunch break (for Tokyo)
         :return: minutes in one trading day for the selected exchange
