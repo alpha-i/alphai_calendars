@@ -16,6 +16,9 @@ def test_get_minutes_in_one_day():
     gymuk_calendar = get_calendar('GYMUK')
     assert gymuk_calendar.get_minutes_in_one_day() == 900
 
+    jse_calendar = get_calendar('JSE')
+    assert jse_calendar.get_minutes_in_one_day() == 480
+
 
 def test_closing_time_for_day():
 
@@ -35,3 +38,8 @@ def test_closing_time_for_day():
     closing_time = gym_uk.closing_time_for_day(the_day)
 
     assert closing_time == the_day.replace(hour=21)
+
+    JSE = get_calendar('JSE')
+    closing_time = JSE.closing_time_for_day(the_day)
+
+    assert closing_time == the_day.replace(hour=15)

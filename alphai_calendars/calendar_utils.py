@@ -5,6 +5,7 @@ import pandas as pd
 from pandas_market_calendars import MarketCalendar
 
 from alphai_calendars.calendar_gym_uk import GymUkCalendar
+from alphai_calendars.calendar_jse import JSEExchangeCalendar
 
 ROOM_FOR_SCHEDULE = 10
 
@@ -12,11 +13,13 @@ MarketDay = namedtuple('MarketDay', 'open close')
 
 _calendars = {
     'GYMUK': GymUkCalendar,
+    'JSE': JSEExchangeCalendar
 
 }
 
 _aliases = {
     'GYMUK': 'GYMUK',
+    'JSE': 'JSE'
 }
 
 
