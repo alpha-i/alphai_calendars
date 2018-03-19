@@ -6,6 +6,7 @@ from pandas_market_calendars import MarketCalendar
 
 from alphai_calendars.calendar_gym_uk import GymUkCalendar
 from alphai_calendars.calendar_jse import JSEExchangeCalendar
+from alphai_calendars.calendar_jse_eom import JSEEOMCalendar
 
 ROOM_FOR_SCHEDULE = 10
 
@@ -13,13 +14,15 @@ MarketDay = namedtuple('MarketDay', 'open close')
 
 _calendars = {
     'GYMUK': GymUkCalendar,
-    'JSE': JSEExchangeCalendar
+    'JSE': JSEExchangeCalendar,
+    'JSEEOM': JSEEOMCalendar
 
 }
 
 _aliases = {
     'GYMUK': 'GYMUK',
-    'JSE': 'JSE'
+    'JSE': 'JSE',
+    'JSEEOM': 'JSEEOM'
 }
 
 
